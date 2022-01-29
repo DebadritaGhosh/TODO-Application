@@ -4,12 +4,14 @@ const cors = require('cors');
 
 //importing pool from db.js
 const pool = require("./db");
+const res = require("express/lib/response");
 
 //middleware
 app.use(cors());
 app.use(express.json()); //request.body
 
 //Routes
+
 //Create a todo Route
 app.post("/todos", async(req,res)=> {
     try{
@@ -22,6 +24,18 @@ app.post("/todos", async(req,res)=> {
     }
 });
 
+//Get all todo
+app.get("/todos", async(req,res) => {
+    try{
+        const allTodos = await pool.query("SELECT * FROM todo");
+        res.json(allTodos.rows)
+    }
+    catch(err){
+        console.error(err.message);
+    }
+});
+
+//Server
 app.listen(5000, () => {
     console.log("Server started");
 })
