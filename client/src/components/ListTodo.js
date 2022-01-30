@@ -1,4 +1,8 @@
 import React,{useState,useEffect} from 'react';
+//Importing Components
+import EditTodo from './EditTodo';
+
+
 
 const ListTodo = () => {
 
@@ -33,7 +37,7 @@ const ListTodo = () => {
 
   return (
   <div>
-<table class="table mt-5 text-center">
+<table className="table mt-5 text-center">
     <thead>
       <tr>
         <th>Description</th>
@@ -46,7 +50,7 @@ const ListTodo = () => {
         allTodos.map((todo) => (
             <tr key={todo.todo_id}>
             <td>{todo.description}</td>
-            <td><button className='btn btn-warning'>Edit</button></td>
+            <td><EditTodo todo={todo}  /></td>
             <td><button className='btn btn-danger' onClick={() => deleteTodo(todo.todo_id)}>Delete</button></td>
           </tr>
         ))
