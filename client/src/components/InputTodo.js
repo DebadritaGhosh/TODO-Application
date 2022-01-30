@@ -12,8 +12,8 @@ const InputTodo = () => {
                 headers: { "Content-Type" : "application/json" },
                 body: JSON.stringify(body)
             });
-            console.log(response);
-            setDescription("");
+            // setDescription("");
+            window.location = "/";
         } catch (error) {
             console.error(error);
         }
