@@ -1,10 +1,12 @@
-
 import './App.css';
+
+//Importing Components
+import InputTodo from './components/InputTodo';
 
 function App() {
   return (
-    <div className='App'>
-      <h1>PERN TODO</h1>
+    <div className='container'>
+      <InputTodo />
     </div>
   );
 }
